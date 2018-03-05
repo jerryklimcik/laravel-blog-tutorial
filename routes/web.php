@@ -11,6 +11,8 @@
 |
 */
 
+use App\Post;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('post.index', ['posts' => Post::all()]);
 });
