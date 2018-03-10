@@ -16,3 +16,6 @@ use App\Post;
 Route::get('/', function () {
     return view('post.index', ['posts' => Post::all()]);
 });
+
+Route::get('/contact', 'ContactController@show');
+Route::post('/contact', 'ContactController@mailToAdmin'); 

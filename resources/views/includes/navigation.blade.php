@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
-		<a class="navbar-brand" href="#">Blog</a>
+		<a class="navbar-brand" href="{{ url('/') }}">Blog</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Domů <span class="sr-only">(current)</span> </a>
+				<li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
+					<a class="nav-link" href="{{ url('/') }}">Domů <span class="sr-only">(current)</span> </a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">O nás</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Kontakt</a>
+					<a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="{{ url('contact') }}">Kontakt</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" id="login" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Login </a>
