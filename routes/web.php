@@ -11,11 +11,10 @@
 |
 */
 
-use App\Post;
-
-Route::get('/', function () {
-    return view('post.index', ['posts' => Post::all()]);
-});
+Route::get('/', 'PostController@index')->name('post.index');
+Route::get('/post/{post}', 'PostController@show')->name('post.show');
 
 Route::get('/contact', 'ContactController@show');
-Route::post('/contact', 'ContactController@mailToAdmin'); 
+Route::post('/contact', 'ContactController@mailToAdmin');
+
+Route::get('/category/{category}', 'CategoryController@show')->name('category.show');

@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Příspěvky')
+@section('title', 'Příspěvky kategorie ' . $category->name)
 
 @section('content')
 
-	@foreach($posts as $post)
+	@foreach($category->posts as $post)
 		<div class="card mb-4">
 			<img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
 			<div class="card-body">
