@@ -15,12 +15,17 @@
 				<li class="nav-item">
 					<a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="{{ url('contact') }}">Kontakt</a>
 				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" id="login" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Login </a>
-					<div class="dropdown-menu" aria-labelledby="login">
-						<a class="dropdown-item" href="#">Odhlášení</a>
-					</div>
-				</li>
+				@if(Auth::check())
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" id="login" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Login </a>
+						<div class="dropdown-menu" aria-labelledby="login">
+							<form id="frm-logout" action="{{ route('logout') }}" method="POST">
+							<button class="dropdown-item" type="submit" style="cursor: pointer">Odhlášení</button>
+								{{ csrf_field() }}
+							</form>
+						</div>
+					</li>
+				@endif
 			</ul>
 		</div>
 	</div>

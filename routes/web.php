@@ -18,3 +18,5 @@ Route::get('/contact', 'ContactController@show');
 Route::post('/contact', 'ContactController@mailToAdmin');
 
 Route::get('/category/{category}', 'CategoryController@show')->name('category.show');
+
+Auth::routes();
